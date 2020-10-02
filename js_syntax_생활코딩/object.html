@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Object</title>
+</head>
+<body>
+    <script>
+        // 파이썬의 딕셔너리와 유사!
+        var grades = {"kkojae":30, "egoing":10, "kkojae_":80};
+        // alert(grades);
+        console.log(grades);
+        document.write(grades["kkojae"], "<br/>");
+        document.write(grades["egoing"], "<br/>");
+        document.write(grades.kkojae_, "<br/>");
+
+        // 반복문 활용
+        var arr = ["a","b","c"];
+        for (var i = 0; i < arr.length; i+=1){
+            console.log(arr[i]);
+        }
+        for (i in arr){
+            console.log(arr[i]);
+        }
+    </script>
+
+    <ul>
+        <script type="text/javascript">
+            var grades = {"kkojae":30, "egoing":10, "kkojae_":80};
+            for (key in grades){
+                document.write("<li>key: ", key, ", value: ", grades[key], "</li>")
+            }
+        </script>
+    </ul>
+
+    <ul>
+        <script type="text/javascript">
+            var grades={
+                "list" : {"kkojae":30, "egoing":10, "kkojae_":80},
+                "show" : function(){
+                    console.log(this["list"])
+
+                    // 여기에서 this란 내가 포함된 grades를 칭한다.
+                    for (var i in this["list"]){
+                        document.write("<li>", i, ", ", this["list"][i], "</li>");
+                    }
+                }
+            }
+            grades["show"]();
+        </script>
+    </ul>
+</body>
+</html>
