@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Array</title>
+</head>
+<body>
+    <script>
+        var member = ["kkojae","egoing","kkojae_"];
+        // alert(member);  //kkojae, egoing, kkojae_
+        // alert(member[0]); //kkojae
+        // alert(member[1]); //egoing
+        // alert(member[2]); //kkojae_
+        // alert(member[3]); //undifined
+
+        function get_members(){
+            return ["kkojae","egoing","kkojae_"];
+        }
+        var members = get_members();
+        document.write(members[0]+"<br/>");
+        document.write(members[1]+"<br/>");
+        document.write(members[2]+"<br/>");
+        document.write("<br/>")
+
+        for (var i in members){
+            document.write(members[i].toUpperCase());
+            document.write("<br/>")
+        }
+        document.write("<br/>")
+
+        document.write("맴버의 수 ", members.length);
+        document.write("<br/>")
+
+        for (var i=0; i < members.length; i+=1){
+            document.write(members[i]);
+            document.write("<br/>")
+        }
+        document.write("<br/>")
+
+        var li = ["a","b","c","d","e"];
+        document.write(li,"<br/>");
+
+        li.push("f");
+        document.write(li,"<br/>");
+        document.write("<br/>")
+
+        var li = ["a","b","c","d","e"];
+        document.write(li,"<br/>");
+        // li.concat은 li 에 다시 담아줘야 변화한다.
+        li = li.concat(["f","g"]);
+        document.write(li);
+        document.write("<br/>")
+
+        // unshift('z')를 사용하면 array의 가장 앞부분에 'z'를 추가 해준다. push는 맨 뒤에 추가.
+        var li = ["a","b","c","d","e"];
+        li.unshift("z");
+        document.write(li);
+        document.write("<br/>");
+
+        // 값 추가 , 값 제거 후 추가 splice
+        var a = ['a','b','c'];
+        a.splice(1,0,'d');
+        document.write(a,"<br/>");
+        a.splice(2,0,'z','z','z');
+        document.write(a,"<br/>");
+        var a = ['a','b','c'];
+        a.splice(1,1,'x','y');
+        document.write(a,"<br/>");
+        a.splice(1,3,'b','c');
+        document.write(a);
+        document.write("<br/><br/>");
+
+        // 값 제거 맨앞에 값 제거 shift, 맨 뒷값 제거 pop
+        var li = ["a","b","c","d","e"];
+        li.shift();
+        document.write(li,"<br/>");
+        li.pop();
+        document.write(li,"<br/>");
+        document.write("<br/>");
+
+        // 값 정렬
+        var li = ["e","a","c","b","d"];
+        document.write(li,"<br/>")
+        li.sort();
+        document.write(li,"<br/>");
+        li.reverse();
+        document.write(li)
+    </script>
+</body>
+</html>
