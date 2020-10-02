@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Function</title>
+</head>
+<body>
+    <script>
+
+        function numbering(){
+            // i = 0;
+            // while(i < 10){
+            //     document.write(i+"<br/>");
+            //     i += 1;
+            // }
+            for (i = 0; i < 10; i+=1){
+                document.write(i,"<br/>")
+            }
+        }
+        // numbering();
+
+        function get_name(){
+            return "kkojae";
+        }
+        // alert(get_name());
+        // document.write(get_name());
+        // console.log(get_name());
+
+        function get_sum(x, y){
+            return x+y;
+        }
+        // alert(get_sum(5,2));
+        // console.log(get_sum(5,2));
+        // document.write(get_sum(5,2));
+
+        function get_sub(x, y){
+            return x-y;
+        }
+        // alert(get_sub(3,1));
+        // console.log(get_sub(3,1));
+        // document.write(get_sub(3,1));
+
+
+        // 함수 정의 다른 방법 
+        // numbering에 함수를 담아준다. 추후 변수로 함수를 호출 할 수 있다.
+        var numbering = function (){
+            for (i = 0; i < 10; i += 1){
+                document.write(i);
+            }
+        }
+        // numbering();
+
+
+        // 익명함수 (1회성 함수) lambda 함수랑 비슷?!
+        (function(){
+            for (i=0; i<10; i+=1){
+                document.write(i);
+            }
+        })();
+
+    </script>
+</body>
+</html>
