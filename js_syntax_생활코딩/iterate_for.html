@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Iterate_For</title>
+</head>
+<body>
+    <script>
+        // i = i+1 --> i++ 과 같다.
+        // document.write("coding everybody");
+
+        for (var i = 0; i < 10; i++){
+            if (i===5){
+                break;
+            }
+            document.write("coding everybody"+i+"<br>")
+        }
+        document.write("<br/><br/>")
+
+        for (var i = 0; i < 10; i++){
+            if (i===5 || i===3){
+                continue;
+            }
+            document.write("coding everybody"+i+"<br/>")
+        }
+        document.write("<br/><br/>")
+
+        for (var i = 0; i < 10; i++){
+            for (var j = 0; j < 10; j++){
+                // document.write("coding everybody"+String(i)+String(j)+"<br/>")
+                // 문자열과 숫자열을 +(더하기) 해준다면, 숫자열이 자동으로 문자열로 변환 되어 문자열+문자열이 된다.
+                document.write("coding everybody"+i+j+"<br/>")
+            }
+        }
+
+    </script>
+</body>
+</html>
