@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Closure private_variable</title>
+</head>
+<body>
+    <script>
+        function factory_movie(title){
+            return {
+                "get_title" : function(){
+                    return title;
+                },
+                "set_title" : function(_title){
+                    if (typeof _title === "string"){
+                        title = _title;
+                    } else {
+                        // alert("제목은 문자열이어야 합니다.");
+                        document.write("제목은 문자열이어야 합니다. <br/>");
+                    }
+                }
+            }
+        }
+        ghost = factory_movie("Ghost in the shell");
+        // alert(ghost.get_title());
+        document.write(ghost.get_title(),"<br/>");
+
+        matrix = factory_movie("Matrix");
+        document.write(matrix.get_title(), "<br/>");
+        ghost.set_title(300);
+        ghost.set_title("공각기동대");
+        document.write(ghost.get_title(), "<br/>");
+        document.write(matrix.get_title());
+
+
+        // 클로저 구현시 자주 하는 실수 예제.
+        var array = [];
+        for (var i=0; i<5; i+=1){
+            array[i] = function(){
+                return i;
+            }
+        }
+        for (var idx in array){
+            console.log(array[idx]());
+        }
+
+        // 위의 코드는 아래와 같이 바꿔 주어야 기대하는대로 동작하게 된다.
+        var arr = []
+        for (var j=0; j<5; j+=1){
+            arr[j] = function(j){
+                return function(){
+                    return j;
+                }
+            }(j);
+        }
+        for (var idx in arr){
+            console.log(arr[idx]());
+        }
+
+    </script>
+</body>
+</html>
