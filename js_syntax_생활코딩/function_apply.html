@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Function_apply</title>
+</head>
+<body>
+    <script>
+        function sum(arg1,arg2){
+            return arg1+arg2;
+        }
+        // sum(1,2)와 sum.apply(null,[1,2])는 같은 값을 같는다.
+        document.write(sum.apply(null, [1,2]), "<br/>");
+        document.write(sum(1,2), "<br/>");
+        document.write(sum.apply(null, [4,2]), "<br/>");
+        document.write(sum(4,2), "<br/>");
+        document.write("<br/>")
+
+        o1 = {val1:1, val2:2, val3:3};
+        o2 = {v1:10, v2:50, v3:100, v4:25};
+        function sum1(){
+            var _sum = 0;
+            for (name in this){
+                _sum += this[name];
+            }
+            return _sum;
+        }
+        document.write(sum1.apply(o1), "<br/>")
+        document.write(sum1.apply(o2), "<br/>")
+        document.write("<br/>")
+    </script>
+</body>
+</html>
