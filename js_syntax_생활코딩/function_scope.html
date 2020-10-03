@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Function Scope</title>
+</head>
+<body>
+    <script>
+        // 지역변수(local variable)와 전역변수(global variable)
+        // 예제 1
+        var vscope = "global"
+
+        function fscope(){
+            // var을 붙이지 않고 vscope="local"을 하면 함수를 호출 후 vscope을 출력하면 local이 출력된다.
+            var vscope = "local"
+            // alert("함수 안 " + vscope);
+            document.write("함수 안 ", vscope, "<br/>");
+        }
+        fscope();
+
+        // alert("함수 밖 " + vscope);
+        document.write("함수 밖 ", vscope, "<br/>");
+
+        // 예제 2
+        function a(){
+            var i = 0;
+        }
+        for (var i = 0; i < 5; i+=1){
+            a();
+            document.write(i);
+        }
+        document.write("<br/>")
+
+        // 전역변수를 사용해야할 때는 이렇게 익명 함수를 사용해준다.
+        (function (){
+            var Myapp = {}
+
+            Myapp.calculator = {
+                "left" : null,
+                "right" : null
+            }
+
+            Myapp.coordinate = {
+                "left" : null,
+                "right" : null
+            }
+            Myapp.calculator.left = 10;
+            Myapp.calculator.right = 20;
+
+            function sum(){
+                return Myapp.calculator.left + Myapp.calculator.right;
+            }
+            document.write(sum(),"<br/>");
+        }());
+        </script>
+
+        <script>
+            // 유효범위의 대상
+            for (var i = 0; i < 1; i+=1){
+                var name = "coding everybody";
+            }
+            document.write(name, "<br/>");
+
+            // 정적 유효범위
+            var i = 5;
+            function a(){
+                var i = 10;
+                b();
+            }
+            function b(){
+                document.write(i);
+            }
+            a();
+        </script>
+</body>
+</html>
