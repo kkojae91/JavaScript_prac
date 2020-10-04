@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Object_this</title>
+</head>
+<body>
+    <script>
+        function func(){
+            if (window === this){
+                document.write("window === this <br/>");
+            }
+        }
+        func();
+        
+        var o = {
+            func2 : function(){
+                if (o === this){
+                    document.write("o === this <br/>");
+                }
+            }
+        }
+        o.func2();
+
+        // 생성자의 호출;
+        var funcThis = null;
+        function Func(){
+            funcThis = this;
+        }
+        var o1 = Func();
+        if (funcThis === window){
+            document.write("window <br/>")
+        }
+        var o2 = new Func();
+        if (funcThis === o2){
+            document.write("o2 <br/>")
+        }
+        
+    </script>
+</body>
+</html>
