@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Object_this_apply_call</title>
+</head>
+<body>
+    <script>
+        function sum(x,y){
+            return x+y;
+        }
+        document.write(sum(1,2), "<br/>");
+
+        // 위와 아래의 결과는 같고 같은 의미를 같는 함수 들이다.
+        // 아래와 같은 방법은 3번째 인자가 길어지면 작성하기 힘들기 때문에 사용되지 않는다.
+        // 위의 sum함수역시 객체임을 보여주기 위해 아래와 같은 함수로 객체를 생성해본 것
+        var sum2 = new Function("x","y","return x+y;");
+        document.write(sum(1,2), "<br/>")
+
+        var o = {}
+        var p = {}
+        function func(){
+            // swith는 if의 대체자 if문과 같은 의미에서 사용되고, case를 통해 o일경우 p일경우 winodw일경우
+            // 로 나누어 그 상황에 맞게 행동한 후 break를 찾게 되면 멈추게 된다.
+            switch(this){
+                case o:
+                    document.write("o <br/>");
+                    break;
+                case p:
+                    document.write("p <br/>");
+                    break;
+                case window:
+                    document.write("window <br/>");
+            }
+        }
+
+        // apply안에 인자를 넣어주면 this가 가르키는 것은 apply안에 들어 있는 인자를 가르키게 된다.
+        func(); // window 가 출력
+        func.apply(o); // o 가 출력
+        func.apply(p); // p 가 출력
+
+    </script>
+</body>
+</html>
