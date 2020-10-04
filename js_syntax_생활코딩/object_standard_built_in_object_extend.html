@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Object_standard_built_in_object_extend</title>
+</head>
+<body>
+    <script>
+        // 표준 내장객체를 활용!
+        // 파이썬 randomchoice 자바스크립에서 구현하기
+        var arr = new Array("seoul", "new york", "ladarkh", "pusan", "tsukuba");
+        function get_random_value_from_array(arr){
+            var idx = Math.floor(arr.length*Math.random());
+            return arr[idx];
+        }
+        console.log(get_random_value_from_array(arr));
+        
+        // 프로토타입의 활용
+        // Math.random() -->>> 0~1 사이의 랜덤한 소숫값 
+        // Math.floor() -->>> 소숫점 버림.
+        Array.prototype.random = function(){
+            var idx = Math.floor(this.length*Math.random());
+            return this[idx];
+        }
+        var arr2 = new Array("seoul", "new york", "ladarkh", "pusan", "tsukuba");
+        console.log(arr2.random());
+    </script>
+</body>
+</html>
