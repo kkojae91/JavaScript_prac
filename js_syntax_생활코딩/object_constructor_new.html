@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Object_constructor_new</title>
+</head>
+<body>
+    <script>
+        var person = {}
+        person.name = "kkojae";
+        person.introduce = function(){
+            return "My name is "+this.name;
+        }
+        document.write(person.introduce(), "<br/>");
+
+        var person = {
+            "name" : "kkojae",
+            "introduce" : function(){
+                return "My name is "+this.name;
+            }
+        }
+        document.write(person.introduce(), "<br/>");
+
+        function Person(){}
+        var p1 = new Person();
+        p1.name = "kkojae";
+        p1.introduce = function(){
+            return "My name is "+this.name;
+        }
+        document.write(p1.introduce(), "<br/>");
+
+        var p2 = new Person();
+        p2.name = "egoing";
+        p2.introduce = function(){
+            return "My name is "+this.name;
+        }
+        document.write(p2.introduce(), "<br/>");
+
+        // 생성자와 new 파이썬 class 와 비슷 비슷 .
+        function Person1(name){
+            this.name = name;
+            this.introduce = function(){
+                return "My name is "+this.name;
+            }
+        }
+        var pe1 = new Person1("kkojae_");
+        document.write(pe1.introduce(),"<br/>");
+
+        var pe2 = new Person1("egoing_");
+        document.write(pe2.introduce(),"<br/>");
+    </script>    
+</body>
+</html>
