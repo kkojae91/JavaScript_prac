@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Object_globalobject</title>
+</head>
+<body>
+    <script>
+        // window라는 전역객체! func와 window.func는 같은 결과를 가지고 온다.
+        // func함수는 window의 메소드.
+        function func(){
+            alert("Hello World!");
+        }
+        // func();
+        // window.func();
+
+        var o = {
+            "func2" : function(){
+                alert("coding everybody");
+            }
+        }
+        o.func2();
+        window.o.func2();
+    </script>
+</body>
+</html>
