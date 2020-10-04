@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Object_inheritance</title>
+</head>
+<body>
+    <script>
+        function Person1(name){
+            this.name = name,
+            this.introduce = function(){
+                return "My name is "+this.name;
+            }
+        }
+        var p1 = new Person1("kkojae");
+        document.write(p1.introduce(),"<br/>");
+        document.write("<br/>");
+
+        // 위의 결과와 아래의 결과는 동일하다.
+        function Person2(name){
+            this.name = name;
+        }
+        Person2.prototype.name = null;
+        Person2.prototype.introduce = function(){
+            return "My name is "+this.name;
+        }
+        var p2 = new Person2("kkojae2");
+        document.write(p2.introduce(), "<br/>");
+        document.write("<br/>")
+
+        // 이제 상속에 대해서 알아보자.
+        function Person(name){
+            this.name = name;
+        }
+        
+        Person.prototype.introduce = function(){
+            return "My name is "+this.name;
+        }
+
+        function Programmer(name){
+            this.name = name;
+            this.bobo = function(){
+                return "bobobo";
+            }
+        }
+
+        Programmer.prototype = new Person();
+        // 상속받은 객체의 속성을 추가하는 방법은 prototype을 활용해도 되고,
+        // 위의 객체 함수 안에 속성을 추가 해줘도 된다.
+        Programmer.prototype.coding = function(){
+            return "Coding everybody!!";
+        }
+        var p3 = new Programmer("egoing");
+        document.write(p3.introduce(),"<br/>");
+        document.write(p3.coding(),"<br/>");
+        document.write(p3.bobo(),"<br/>");
+        document.write("<br/>")
+
+        function Designer(name){
+            this.name = name;
+        }
+        Designer.prototype = new Person();
+        Designer.prototype.design = function(){
+            return "beautiful!!!";
+        }
+        var p4 = new Designer("kkojae");
+        document.write(p4.name,"<br/>");
+        document.write(p4.introduce(),"<br/>");
+        document.write(p4.design(),"<br/>");
+        document.write("<br/>");
+    </script>
+</body>
+</html>
