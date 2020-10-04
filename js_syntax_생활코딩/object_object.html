@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js object_object</title>
+</head>
+<body>
+    <script>
+        // Object.keys(arr) 는 arr의 키값을 리턴해준다. value는 "a","b","c"
+        var arr = ["a","b","c"];
+        console.log("Object.keys(arr) : ", Object.keys(arr));
+        document.write("Object.keys(arr) : ", Object.keys(arr), "<br/>"); //return [0,1,2]
+
+        var o = {"name":"kkojae","age":20,"city":"gwangju"};
+        // document.write(o, "<br/>");
+        document.write(Object.keys(o), "<br/>");  // return  ["name", "age", "city"]
+
+        // Object.prototype.toString()
+        // toString()이 prototype소속이라는 것은 상속 받을 준비를 해두었다는 뜻!!
+        // 그렇기 때문에 객체를 생성해서 Object를 상속 받은 후 사용하면 된다.
+        // var a = new Array(1,2,3) 객체를 생성을 해준 후 객체.toString()을 통해 사용할 수 있다.
+        // Array의 인자를 사람이 보기 좋게 바꾸어 출력해준다?!
+        var b = new Object();
+        console.log("b.toString() : ", b.toString());
+        // Array또한 암시적으로 Object를 상속 받고 있다.
+        var a = new Array(1,2,3);
+        console.log("a.toString() : ", a.toString());
+        document.write("a.toString() : ", a.toString(),"<br/>");
+
+        // Object의 확장(extend)
+        // contain이라는 메소드를 사용하면 contain("인자") 인자가 객체 안에 있는지 없는지 확인하여
+        // 객체 안에 있다면 true를 없다면 false를 return 하는 기능을 만들어 주고 싶다!
+        Object.prototype.contain = function(needle){
+            for (var idx in this){
+                if (this[idx] === needle){
+                    return true;
+                }
+            }
+            return false;
+        }
+        var obj = {"name":"kkojae","city":"gwangju"};
+        document.write(obj.contain("kkojae") ,"<br/>");
+        var li = ["kkojae","egoing","kkojae_"];
+        document.write(li.contain("egoing_"), "<br/>"); 
+
+        // 위의 방법은권장하는 방법이 아닙니다.
+        // 왜냐하면, 모든 객체에 영향을 주기 때문이다.
+        for (var idx in obj){
+            document.write(idx,"<br/>"); // name, city, contain 이 출력된다.
+        }
+        document.write("<br/>");
+        // contain은 필요없는데 이친구가 같이 나오게 되고 조건문을 통해 빼줘야하는 번거로움이 있다.
+        // 꼭 써야 하는 상황일 땐, 객체.hasOwnProperty()를 사용해줘야한다.
+        for (var idx in obj){
+            if (obj.hasOwnProperty(idx)){
+                document.write(idx,"<br/>");
+                document.write(obj[idx],"<br/>");
+            }
+        }
+    </script>
+</body>
+</html>
