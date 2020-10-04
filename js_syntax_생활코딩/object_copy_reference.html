@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Object_copy_reference</title>
+</head>
+<body>
+    <script>
+        // 복제
+        // a변수를 1로 정의하고 b의 변수를 a변수로 할당한 후 b의변수를 2로 변경해준다면, 
+        // a변수의 값은 변경 되지 않는다.
+        var a = 1;
+        var b = a;
+        b = 2;
+        console.log(a, b); // a 1, b 2
+
+        // 참조.객체에서는 a1 b1 은 하나의 객체를 가르킨다.
+        // 그렇기 때문에, b1의 값을 변경하게 되면 a1의 값 또한 변경되는 것이다.
+        var a1 = {"id":1};
+        var b1 = a1;
+        // 아래와 같이 하면 a1.id 의 값은 변하지 않는다. b1은 새로운 객체를 바라보기 때문이다.
+        // b1 = {"id":2}
+        b1.id = 2;
+        console.log(a1.id, b1.id);
+
+        // 함수 안에서도 위와 같은 내용이 적용됩니다.
+        var a2 = 1;
+        function func(b){
+            b = 2;
+        }
+        func(a2);
+        console.log(a2); // a2 1
+
+        var a3 = {"id":1};
+        function func2(b){
+            // b는 새로운 객체를 생성해서 그 객체를 바라보기 때문에 a3의 값의 변경은 되지 않는다.
+            b = {"id":2};
+        }
+        func2(a3);
+        console.log(a3.id); // a3.id 1
+
+        var a4 = {"id":1};
+        function func3(b){
+            // a4의 객체 안의 값을 변경해주는 것이기 때문에 a4.id의 값이 변경 된다.
+            b.id = 2;
+        }
+        func3(a4);
+        console.log(a4.id); // a4.id 2
+    </script>
+</body>
+</html>
