@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./dom_jQuery_control.css">
+    <title>Web_Js dom_jQuery_Control</title>
+</head>
+<body>
+<script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+<div id="container">
+    <div class="box1">
+        <ul id="demo" >
+            <li class="active">HTML</li>
+            <li id="active">CSS</li>
+            <li class="active">JavaScript</li>
+        </ul>
+    </div>
+
+    <div class="box2">
+        <ul id="execute">
+            <li>
+                <pre>
+var lis = document.getElementsByTagName('li');
+for (var i=0; i < lis.length; i+=1){
+    lis[i].style.color = 'red'
+}
+                </pre>
+                <pre>
+$('li').css('color','red')
+                </pre>
+                <input type="button" value="execute" id="execute1" />
+            </li>
+            <li>
+                <pre>
+var lis = document.getElementsByClassName('active');
+for(var i=0; i < lis.length; i+=1){
+    lis[i].style.color='red';
+}
+                </pre>
+                <pre>
+$('.active').css('color','red')
+                </pre>
+                <input type="button" value="execute" id="execute2" />
+            </li>
+            <li>
+                <pre>
+var li = document.getElementById('active');
+li.style.color = 'red';
+li.style.textDecoration = 'underline';
+                </pre>
+                <pre>
+$('#active').css('color','red').css('textDecoration','underline');
+                </pre>
+                <input type="button" value="execute" id="execute3" />
+                <br/>
+                <br/>
+                <input type="button" value="reload" id="reload" />
+                <br/>
+                <br/>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<script src="./dom_jQuery_control.js"></script>
+</body>
+</html>

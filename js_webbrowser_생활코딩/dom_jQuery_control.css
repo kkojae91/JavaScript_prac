@@ -1,0 +1,20 @@
+#execute li{
+    list-style: none;
+    font-size: 0.9rem;
+}
+
+#execute pre{
+    border: 1px solid gray;
+    padding: 10px;
+}
+#container{
+    display: flex;
+    justify-content: center;
+}
+.box1{
+    align-self: center;
+}
+.box2{
+    position: relative;
+    left: 20px;
+}
