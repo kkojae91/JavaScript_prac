@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebJs LocationObject</title>
+</head>
+<body>
+    <!-- location 객체를 활용하여, 현재 윈도우의 url 알아내기. -->
+    <script>
+        // location.href 를 보편적으로 사용한다. (둘다 얻어내는 결과 값은 같다.)
+        document.write(location.href, "<br/>", location.toString());
+        // http://opentutorials.org:80/module/1?id=1#hash
+        // http --> protocol , host --> opentutorials.org , port --> :80 , pathname --> module/1 , search --> id=1 , hash --> #hash
+        console.log(location.protocol, location.host, location.port, location.pathname, location.search, location.hash);
+    </script>
+    <br/>
+
+    <!-- url 변경하기. -->
+    <input type="button" value="naver" onclick="func_location()" />
+    <script>
+        // 사용자를 다른 url로 이동시켜야할 때 사용.
+        // 아래의 코드는 현재 문서를 http://egoing.net으로 이동한다.
+        // console.log(location.href = "http://egoing.net");
+        function func_location(){
+            location.href = "https://www.naver.com";
+        }
+    </script>
+    <br/>
+    <input type="button" value="reload" onclick="func_reload()" />
+    <script>
+        function func_reload(){
+            location.reload();
+        }
+    </script>
+    <br/>
+    <br/>
+    
+    <input type="button" value="naver2" id="naver2" />
+    <br/>
+    <input type="button" value="reload2" id="reload2" />
+    <br/>
+    <script src="./bom_LocationObject.js"></script>
+</body>
+</html>
