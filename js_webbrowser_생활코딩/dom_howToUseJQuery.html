@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web_Js dom_How_to_Use_JQuery</title>
+</head>
+<body>
+<script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+    <div>메롱</div>
+    <p>바보</p>
+    <script>
+        // ('위치').prepend('내용')  '내용'을 '위치'tag 바로 앞에 위치 시킨다는 뜻.
+        // 'body'를 넣어주면 'body' tag바로 밑에 위치 시켜준다.
+        jQuery(document).ready(function($){
+            $('body').prepend('<h1>Hello World!</h1>')
+        });
+        // 위의 코드와 아래의 코드의 차이를 아직 모르겠다.
+        $('p').prepend('<h2>Coding everybody</h2>')
+    </script>
+</body>
+</html>
