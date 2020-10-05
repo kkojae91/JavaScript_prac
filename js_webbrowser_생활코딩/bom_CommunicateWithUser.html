@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web_Js bom_CommunicateWithUser</title>
+</head>
+<body>
+    <!-- alert 경고창 -->
+    <!-- 정보를 제공하거나 디버깅 용도로 사용된다. -->
+    <!-- 요즘 추세는 console.log()를 활용해서 디버깅한다. -->
+    <input type="button" value="alert" onclick="alert('Hello World!');" />
+    <br/>
+    <input type="button" value="alert2" onclick="func_alert();" />
+    <script>
+        function func_alert(){
+            alert("Hello World!");
+            alert("Hello World2!");
+            alert("Hello World3!");
+        }
+    </script>
+    <br/>
+    <input type="button" value="alert3" id="alert3" />
+    <br/>
+    <br/>
+
+    <!-- confirm 확인과 취소를 할 수 있는 창. -->
+    <!-- 확인을 누르면 return true, 취소를 누르면 return false -->
+    <!-- if문과 함께 사용한다. -->
+    <input type="button" value="confirm" onclick="func_confirm()" />
+    <script>
+        function func_confirm(){
+            if (confirm("Ok?")){
+                // 확인을 누르면 Ok라는 경고창을 띄워준다.
+                alert("Ok");
+            } else {
+                // 취소를 누르면 Cancle이라는 경고창을 띄워준다.
+                alert("Cancle");
+            }
+        }
+    </script>
+    <br/>
+    <input type="button" value="confirm2" id="confirm2" />
+    <br/>
+    <br/>
+
+    <!-- prompt 사용자에게 입력값을 받는 창. -->
+    <!-- 사용자가 입력한 값을 문자열로 return 받는다. -->
+    <input type="button" value="prompt" onclick="func_prompt();" />
+    <script>
+        function func_prompt(){
+            if (prompt("What your ID?") === "kkojae"){
+                alert("Welcome!!");
+            } else{
+                alert("Please Check your ID again!");
+            }
+        }
+    </script>
+    <br/>
+    <input type="button" value="prompt2" id="prompt2" />
+    <br/>
+    <br/>
+
+    
+    <script src="./bom_CommunicateWithUser.js"></script>
+</body>
+</html>
