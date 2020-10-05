@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web_Js bom_GolobalObject</title>
+</head>
+<body>
+    <script>
+        // window는 전역객체 모든 객체들은 window의 객체들이다.
+        // 두 방식은 같은 의미이고 같은 결과를 나타낸다.
+        alert("Hello World!");
+        window.alert("Hello World!");
+
+        // 생성된 a변수 역시 window의 객체가 된다.
+        // 아래의 결과는 같은 의미이고 같은 결과를 가지고 온다.
+        var a = 1;
+        alert(a);
+        alert(window.a);
+        window.alert(a);
+        window.alert(window.a);
+
+        // o라는 객체를 생성했는데 이것 역시 window의 객체가 됩니다.
+        // 아래의 결과는 같은 의미이고 같은 결과를 가지고 온다.
+        var o = {"id":"object"};
+        alert(o.id);
+        alert(window.o.id);
+    </script>    
+</body>
+</html>
