@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebJs bom_WindowControl</title>
+</head>
+<body>
+    <ul>
+        <li>
+            <strong>window.open() === open() open은 window의 객체이므로 생략가능.</strong>
+            <br/>
+            첫번째 인자는 새 창에 로드할 문서의 URL이다. 인자를 생략하면 이름이 붙지 않는 새창이 만들어진다.
+            <br/>
+            <input type="button" id="open1" value="window.open('https://www.naver.com')" />
+        </li>
+        <li>
+            두번째 인자는 스크립트가 실행되는 창을 의미한다.
+            <br/>
+            _self는 현재 창에서 아래의 url을 실행시킨다.
+            <br/>
+            <input type="button" id="open2" value="window.open('naver', '_self')">
+        </li>
+        <li>
+            두번째 인자에 '_blank'를 입력하면 새로운 창에 url을 로드한다. 
+            <br/>
+            <input type="button" id="open3" value="window.open('naver', '_blank')">
+        </li>
+        <li>
+            두번째 인자에 'ot'를 입력하면 새로운 창에 url을 로드한다. 여러번 클릭했을경우 기존에 로드된 창에 리로드 된다.
+            <br/>
+            <input type="button" id="open4" value="window.open('naver', 'ot')">
+        </li>
+        <li>
+            세번째 인자에는 새창의 모양과 관련된 속성이 온다.
+            <br/>
+            <input type="button" id="open5" value="window.oepn('naver', '_blank', 'width=200px, height=200px, resizable=yes')">
+        </li>
+    </ul>
+    <script src="./bom_windowControl.js"></script>
+</body>
+</html>
