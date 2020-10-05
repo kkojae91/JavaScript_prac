@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebJs Load_JavaScript</title>
+</head>
+<body>
+    <!-- inline방법 -->
+    <input type="button" onclick="alert('Hello World!')" value="Hello World!" />
+    <br/>
+    <!-- script 태그 사용 -->
+    <input type="button" id="hw" value="Coding everybody!!" />
+    <script>
+        var hw = document.getElementById("hw");
+        hw.addEventListener("click", function(){
+            alert("Coding everybody!!");
+        })
+    </script>
+    <br/>
+
+    <!-- 외부 파일로 분리 -->
+    <!-- head태그에도 넣어도된다. (window onload 필요) -->
+    <input type="button" id="hw1" value="kkojae!!" />
+    <script src="./loadjavascript.js"></script>
+</body>
+</html>
