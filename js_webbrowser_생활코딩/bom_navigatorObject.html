@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebJs bom_NavigatorObject</title>
+</head>
+<body>
+    <script>
+        // navigator를 통해서 이 객체의 모든 속성(property)를 확인할 수 있다.
+        // 아래의 방법들은 주로 호완성 문제등을 위해서 사용한다.
+        console.dir(navigator);
+        // appName 확인하기 대부분의 웹브라우저(크롬, 파이어폭스, 익스플로러 등)는 Netscape로 표시된다.
+        console.dir(navigator.appName);
+        // userAgent 브라우저가 서버측으로 전송하는 user-agent http 헤더의 내용이다. appVersion과 비슷.
+        console.dir(navigator.userAgent);
+        console.dir(navigator.appVersion);
+        // platform 브라우저가 동작하고 있는 운영체제에 대한 정보이다.
+        console.dir(navigator.platform);
+    </script>
+    <script>
+        // From https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+        // 호완성의 문제가 있을때 아래의 코드를 실행 하면 호완성의 문제를 해결할 수 있다.
+        if (!Object.keys) {
+            Object.keys = (function () {
+                'use strict';
+                var hasOwnProperty = Object.prototype.hasOwnProperty,
+                    hasDontEnumBug = !({toString: null}).propertyIsEnumerable('toString'),
+                    dontEnums = [
+                    'toString',
+                    'toLocaleString',
+                    'valueOf',
+                    'hasOwnProperty',
+                    'isPrototypeOf',
+                    'propertyIsEnumerable',
+                    'constructor'
+                    ],
+                    dontEnumsLength = dontEnums.length;
+            
+                return function (obj) {
+                if (typeof obj !== 'object' && (typeof obj !== 'function' || obj === null)) {
+                    throw new TypeError('Object.keys called on non-object');
+                }
+            
+                var result = [], prop, i;
+            
+                for (prop in obj) {
+                    if (hasOwnProperty.call(obj, prop)) {
+                    result.push(prop);
+                    }
+                }
+            
+                if (hasDontEnumBug) {
+                    for (i = 0; i < dontEnumsLength; i++) {
+                    if (hasOwnProperty.call(obj, dontEnums[i])) {
+                        result.push(dontEnums[i]);
+                    }
+                    }
+                }
+                return result;
+                };
+            }());
+        }
+    </script>
+</body>
+</html>
