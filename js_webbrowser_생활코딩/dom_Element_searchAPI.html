@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web_Js Element_searchAPI</title>
+</head>
+<body>
+    <ul>
+        <li class="marked">HTML</li>
+        <li>CSS</li>
+        <li id="active">
+            JavaScript
+            <ul>
+                <li>JavaScript Core</li>
+                <li class="marked">DOM</li>
+                <li class="marked">BOM</li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        // 객체.textContent 를 하면 태그안의 text를 불러온다.
+        // className이 marked 중 active안에 있는 className이 marked인 경우만 뽑아보기.
+        console.group('document전체의 marked');
+            var list = document.getElementsByClassName('marked');
+            console.log(list.length);
+            for (var i=0; i < list.length; i+=1){
+                console.log(list[i].textContent);
+            }
+        console.groupEnd();
+
+        console.group('active의 marked');
+            var active = document.getElementById('active');
+            console.log(active.length);
+            var active_marked = active.getElementsByClassName('marked');
+            console.log(active_marked.length);
+            for (var i=0; i < active_marked.length; i+=1){
+                console.log(active_marked[i].textContent);
+            }
+        console.groupEnd();
+    </script>
+</body>
+</html>
