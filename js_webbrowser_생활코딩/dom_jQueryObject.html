@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web_Js dom_jQueryObject</title>
+</head>
+<body>
+    <script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+    <ol>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ol>
+    <script>
+        // jQuery객체는 css를 list형태에 한번에 적용시킬 수 있다.
+        var lis = $('ul>li');
+        console.log(lis); //[<li>HTML</li>, <li>CSS</li>, <li>JavaScript</li>]
+        lis.css('text-decoration', 'underline').css('color','blue').css('list-style', 'none');
+
+        console.log($('ul>li').length);  // 3
+        console.log($('ul>li')[0]);  // <li>HTML</li>
+        var li = $('ul>li');
+        for (var i=0; i<li.length; i+=1){
+            console.log(li[i]);
+            
+            // li[i].css('color','red');
+            // li가 현재 돔 객체 이기 때문에 이것을 jQuery로 사용해주기 위해선 $(여기) 여기에 담아 줘야한다.
+            // 위와 같이 하면 error를 발생시킨다. 아래와 같이 코드를 수정해줘야한다.
+            $(li[i]).css('color','red');
+        }
+
+
+        // jQuery map 메소드
+        var li_map = $('ol>li');
+        li_map.map(function(index, elem){
+            console.log(index, elem);
+            $(elem).css('color','green');
+        })
+
+        
+    </script>
+</body>
+</html>
