@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web_Js dom_htmlCollection</title>
+</head>
+<body>
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li id="active">JavaScript</li>
+    </ul>
+    <script>
+        // console.group()  console.groupEnd()
+        // console 에 그룹핑 해서 보기 쉽게 정리 해서 보여준다.
+        console.group('before');
+        var lis = document.getElementsByTagName('li');
+        for (var i=0;i < lis.length; i+=1){
+            console.log(lis[i]);
+            // document.write(lis[i],"<br/>");
+        }
+        console.groupEnd();
+        
+        console.group('after');
+        // 제거하고싶은객체.parentNode.removeChile('제거하고싶은객체');
+        // 를 해주면 제거하고 싶은 객체를 제거해준다.
+        lis[1].parentNode.removeChild(lis[1]);
+        for (var i =0; i < lis.length; i+=1){
+            console.log(lis[i]);
+        }
+        console.groupEnd();
+    </script>
+</body>
+</html>
