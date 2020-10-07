@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web_Js event_register</title>
+</head>
+<body>
+    <!-- 이밴트 등록 inline 방식 -->
+    <!-- document.getElementById('target').value 를 통해 value를 출력할 수 있다. value는 id가 될수도, type이 될수도 있다 속성값은 다 출력 가능. -->
+    <input id="target" type="button" onclick="alert('Hello World '+document.getElementById('target').value)" value="inline button" />
+
+    <!-- 위 코드와 아래 코드는 같은 의미이고 같은 출력값을 갖는다. -->
+    <!-- this를 통해 document.getElementById('target') 자기 자신을 호출 한 것 -->
+    <!-- this를 사용한다. -->
+    <input type="button" onclick="alert('Hello World! '+ this.value)" value="this button" />
+    <br/>
+    <br/>
+    <!-- property listener -->
+    <input type="button" id="target1" value="taget1 button" />
+    <script>
+        // eventObject function에 인자로 event를 넣어주면 event객체가 생성되고,
+        // event객체가 가지고 있는 property target은 어디에서 event가 발생했는지 알려준다.
+        // target.value를 해주면 target이 가지고 있는 value의 값을 리턴해준다.
+        var t = document.getElementById('target1');
+        t.onclick = function(event){
+            //  || 뒤에 있는 코드가 ie에서 동작하는 코드 
+            var event = event || window.event;
+            var target = event.target || event.srcElement;
+            alert("Coding EveryBody! "+target.value);
+            // ie와 crome 의 차이로 인해 아래와 같은 코드보다 위와 같은 코드로 작성해주는게 예외를 처리 해줄 수 있다.
+            // 보통 라이브러리를 사용하기에 실제 상황에서는 이러한 이슈때문에 힘들일은 거의 없다고 보면 된다.
+            // alert("Coding everybody! "+event.target.value);
+        }
+
+    </script>
+    <br/>
+    <br/>
+
+    <!-- addEventListener -->
+    <!-- 일반적으로 제일 권장하는 방법입니다. -->
+    <input type="button" id="target3" value="target3 button" />
+
+    <input type="button" id="target4" value="target4 buuton" />
+
+    <input type="button" id="target5" value="target5 button" />
+    <input type="button" id="target6" value="target6 button" />
+    <script>
+        var t3 = document.getElementById("target3");
+        if (t3.addEventListener){
+            t3.addEventListener("click", function(event){
+                alert("Hello World!, "+event.target.value);
+            });
+            // ie 호환 이슈가 발생할 경우를 생각해서 아래의 경우를 추가 해주어야한다.
+        } else if (t3.attachEvent){
+            t3.attachEvent("onclick", function(event){
+                alert("Hello World!, "+event.target.value);
+            });
+        }
+
+        // 복수의 이벤트 등록하는 방법.
+        var t4 = document.getElementById("target4");
+        t4.addEventListener("click", function(event){
+            alert(1);
+        })
+        t4.addEventListener("click", function(event){
+            alert(2);
+        })
+
+        var t5 = document.getElementById("target5");
+        var t6 = document.getElementById("target6");
+
+        // switch case 문으로 함수 하나로 묶어주는 방법.
+        function btn_listener(event){
+            switch(event.target.id){
+                case "target5":
+                    alert(1);
+                    break;
+                case "target6":
+                    alert(2);
+                    break
+            }
+        }
+        t5.addEventListener("click", btn_listener);
+        t6.addEventListener("click", btn_listener);
+    </script>
+</body>
+</html>
