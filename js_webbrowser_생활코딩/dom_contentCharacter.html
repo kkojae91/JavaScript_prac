@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            padding: 0px;
+            margin: 0px;
+        }
+        div{
+            border: 50px solid blue;
+            padding: 50px;
+            margin: 50px;
+        }
+        #target{
+            width: 100px;
+            height: 200px;
+        }
+    </style>
+    <title>Web_Js dom_contentCharacter</title>
+</head>
+<body>
+    <input type="button" id="scrollbtn" value="scroll(0,1000)" />
+    <div>
+        <div id="target">
+            coding!!
+        </div>
+    </div>
+    
+    <script>
+        // 요소의 크기와 위치
+        var target = document.getElementById("target");
+        // getBoundingClientRect() 를 출력해보면, 현재 엘리먼트의 위치 값을 리턴 받을 수 있습니다.
+        console.log(target.getBoundingClientRect());
+        // offsetParent 를 출력해보면, 누구를 기준으로 위치 값을 리턴 하는지를 확인 할 수 있습니다.
+        console.log(target.offsetParent);
+
+        // viewport
+        // setInterval(function(){
+        //     console.log("getBoundingClientRect : ", target.getBoundingClientRect().top);
+        //     console.log("pageYoffset : ", window.pageYOffset);
+        //     console.log("document Y : ", target.getBoundingClientRect().top+window.pageYOffset);
+        // }, 1000);
+
+        // 스크롤 제어
+        // window.scrollTo(x,y) x,y는 이동할 범위 지정. 클릭했을때 한번에 그 위치로 이동 하게 된다.
+        var scroll_btn = document.getElementById("scrollbtn")
+        scroll_btn.addEventListener("click", function(){
+            window.scrollTo(0,1000);
+        })
+
+        // 스크린의 크기
+        // window.innerWidth, innerHeight 현재브라우저 화면의 크기
+        console.log("window.innerWidth : ", window.innerWidth, "window.innerHeight : ", window.innerHeight);
+        // screen.width, heigth 모니터 전체 화면의 크기
+        console.log("screen.width : ", screen.width, "screen.heigth : ", screen.height);
+    </script>
+</body>
+</html>
