@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web_Js dom_Node_String_control</title>
+</head>
+<body>
+    <ul id="target1">
+        <li>HTML</li>
+        <li>CSS</li>
+    </ul>
+    <input type="button" onclick="get();" value="get" />
+    <input type="button" onclick="set();" value="set" />
+
+    <ul id="target2">
+        <li>HTML</li>
+        <li>CSS</li>
+    </ul>
+    <input type="button" onclick="get2()" value="get2" />
+    <input type="button" onclick="set2()" value="set2" />
+
+    <ul id="target3">
+        <li>HTML</li>
+        <li>CSS</li>
+    </ul>
+    <input type="button" onclick="get3()" value="get3" />
+    <input type="button" onclick="set3()" value="set3" />
+
+    <ul id="target4" style="border: 1px solid red;">
+        <li style="border: 1px solid gray; margin: 5px;">CSS</li>
+    </ul>
+    <input type="button" onclick="beforebegin();" value="beforebegin" />
+    <input type="button" onclick="afterbegin();" value="afterbegin" />
+    <input type="button" onclick="beforeend();" value="beforeend" />
+    <input type="button" onclick="afterend();" value="afterend" />
+    <script>
+        // innerHTML 
+        // 객체명.innerHTML --->>> 객체의 하위 카태고리들을 긁는다.
+        // 객체명.innerHTML = "<></>"를 통해 바로 태그들을 변경 시킬 수 있다.
+        // create 어쩌고 저쩌고 귀찮은 일들을 하지 않고 바로 설정 할 수 있어 편리 하다.
+        function get(){
+            var target1 = document.getElementById('target1');
+            alert(target1.innerHTML);
+        }
+        function set(){
+            var target1 = document.getElementById('target1');
+            target1.innerHTML = "<li>JavaScript Core</li><li>BOM</li><li>DOM</li>";
+        }
+
+        // outerHTML
+        // 객체의 카테고리 전체를 (본인포함) 긁어온다.
+        // innerHTML과 동작 방식은 동일 합니다.
+        function get2(){
+            var target2 = document.getElementById("target2");
+            alert(target2.outerHTML);
+        }
+        function set2(){
+            var target2 = document.getElementById("target2");
+            target2.outerHTML = "<ol id='target2'><li>JavaScript Core</li><li>BOM</li><li>DOM</li></ol>"
+        }
+
+        // innerText, outerText 
+        // innerHTML, outerHTML 과 거의 비슷하지만, 다른점은 tag를 제외한 text만을 얻어고 집어 넣을때도 text만 넣어진다.
+        function get3(){
+            var target3 = document.getElementById("target3");
+            alert(target3.innerText);
+        }
+        function set3(){
+            var target3 = document.getElementById("target3");
+            target3.innerText = "<li>JavaScript Core</li> <li>BOM</li> <li>DOM</li>"
+        }
+
+        // insertAdjacentHTML()
+        // beforebegin, afterbegin, beforeend, afterend 말 뜻 그대로 들어가게 되는 위치를 첫번째 인자로 두번째 인자에는 삽입할 html을 넣어준다.
+        // target 밖에 target이 시작하기 전에 html을 삽입해준다.
+        function beforebegin(){
+            var target4 = document.getElementById("target4");
+            target4.insertAdjacentHTML("beforebegin", "<h1>Client Side</h1>");
+        }
+        // target 안에 target태그 시작전에 html을 삽입해준다.
+        function afterbegin(){
+            var target4 = document.getElementById("target4");
+            target4.insertAdjacentHTML("afterbegin", "<li>HTML</li>");
+        }
+        // target 안에 target태그 끝나는곳에 html을 삽입해준다.
+        function beforeend(){
+            var target4 = document.getElementById("target4");
+            target4.insertAdjacentHTML("beforeend", "<li>JavaScript</li>");
+        }
+        // target 밖에 target이 끝나는 곳에 html을 삽입해준다.
+        function afterend(){
+            var target4 = document.getElementById("target4");
+            target4.insertAdjacentHTML("afterend", "<h1>Server Side</h1>");
+        }
+    </script>
+</body>
+</html>
