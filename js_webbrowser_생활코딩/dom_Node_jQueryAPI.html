@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web_Js dom_Node_jQuery</title>
+</head>
+<body>
+    <script src="//code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <div class="target" id="target1" style="border: 1px solid gray;">target1</div>
+    <div class="target" id="target2" style="border: 1px solid gray;">target2</div>
+    <input type="button" value="remove target 1" id="btn1" />
+    <input type="button" value="empty target 2" id="btn2" />
+    <br/>
+    <br/>
+    <div class="target3" id="target3" style="border: 1px solid gray;">target3</div>
+    <div class="target4" id="target4" style="border: 1px solid gray;">target4</div>
+    <input type="button" value="replaceAll target 3" id="btn3" />
+    <input type="button" value="replaceWith target 4" id="btn4" />
+    <br/>
+    <br/>
+    <div id="target5" class="target5">target5</div>
+    <div id="target6" class="target6">target6</div>
+    <div id="source">source</div>
+    <input type="button" value="clone replaceAll target 5" id="btn5" />
+    <input type="button" value="clone replaceWith target 6" id="btn6" />
+    <br/>
+    <br/>
+    <div id="target7" class="target7" style="border: 1px solid gray;">target7</div>
+    <div id="source2" style="border: 1px solid gray;">source2</div>
+    <input type="button" value="append source2 to target 7" id="btn7" />
+    <br/>
+    <br/>
+    <input type="button" value="reload" id="reload" />
+    <script>
+        // before는 대상 앞에 생성
+        $('.target').before("<div>before</div>");
+        // after는 대상 뒤에 생성
+        $(".target").after("<div>after</div>");
+        // prepend 대상 안에서 앞에 생성
+        $(".target").prepend("<div>prepend</div>");
+        // append 대상 안에서 뒤에 생성
+        $(".target").append("<div>append</div>");
+
+        // remove는 대상 전체를 삭제 시키고
+        $("#btn1").click(function(){
+            $("#target1").remove();
+        });
+        // empty는 대상의 택스트만 삭제를 시킨다.
+        $("#btn2").click(function(){
+            $("#target2").empty();
+        })
+        
+        // 변경
+        // replaceAll, replaceWith 둘다 대상을 변경하는 API 이다.
+        // replaceAll은 변경해야할 대상을 먼저 두고 
+        // replaceWith는 변경할 대상을 먼저 둔다.
+        $('#btn3').click(function(){
+            $("<div>replaceAll</div>").replaceAll("#target3");
+        })
+        $("#btn4").click(function(){
+            $("#target4").replaceWith("<div>replaceWith</div>");
+        })
+
+        // 복제
+        // 변경과 똑같다 clone()대상만 추가 됨.
+        // $("").clone() 을 하면 대상을 복제 할수 있고 
+        // replaceAll과 replaceWith를 통해 복제 된 대상을 기존대상에 복제해서 변경 시켜준다.
+        $("#btn5").click(function(){
+            $("#source").clone().replaceAll("#target5");
+        })
+        $("#btn6").click(function(){
+            $("#target6").replaceWith($("#source").clone());
+        })
+
+        // 이동
+        // append를 하게 되면 대상 객체의 하위 객체로 들어가게 된다.
+        // prepend, append, before, after 모두 사용 가능합니다!
+        $("#btn7").click(function(){
+            $("#target7").append($("#source2"));
+        })
+
+        // 새로고침 reload
+        $("#reload").click(function(){
+            location.reload();
+        })
+    </script>
+</body>
+</html>
