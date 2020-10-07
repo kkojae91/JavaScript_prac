@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web_Js dom_TextObject</title>
+</head>
+<body>
+    <p id="target1"><span>Hello World!</span></p>
+    <p id="target2">
+        <span>Hello World!!</span>
+    </p>
+    <script>
+        var target1 = document.getElementById("target1");
+        var target2 = document.getElementById("target2");
+        console.log(target1.firstChild); // span
+        console.log(target1.firstChild.firstChild); // "Hello World!"
+        console.log(target1.firstChild.firstChild.nodeValue);  // Hello World!
+        console.log(target2.firstChild); // #text 공백 문자.
+
+        try{
+            console.log(target2.firstChild.firstChild.nodeValue);
+        } catch(e) {
+            console.log(e); // typeerror cannot read property nodeValue of null 노드밸류가 없어서 읽을수 없다 타입에러
+        }
+
+        console.log(target2.firstChild.nextSibling.firstChild.nodeValue);  // Hello World!!
+    </script>
+</body>
+</html>
