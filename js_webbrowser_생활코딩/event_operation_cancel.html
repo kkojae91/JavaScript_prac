@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web_Js event_operation_cancel</title>
+</head>
+<body>
+    <!-- inline 방식 -->
+    <!-- <p>
+        <label for="prevent1">prevent event on</label>
+        <input type="checkbox" id="prevent1" name="eventprevent1" value="on" />
+    </p>
+    <p>
+        <a href="http://opentutorials.org" onclick="if(document.getElementById('prevent1').checked) return false; ">opentutorials</a>
+    </p>
+
+    <p>
+        <form action="http://opentutorials.org" onsubmit="if(document.getElementById('prevent1').checked) return false;">
+            <input type="submit" />
+        </form>
+    </p>
+    <br/>
+    <br/> -->
+
+    <!-- property 방식 -->
+    <!-- <p>
+        <label for="prevent2">prevent event on</label>
+        <input type="checkbox" id="prevent2" name="eventprevent2" value="on" />
+    </p>
+    <p>
+        <a href="http://opentutorials.org">opentutorials</a>
+    </p>
+    <p>
+        <form action="http://opentutorials.org">
+            <input type="submit" />
+        </form>
+    </p>
+    <br/>
+    <br/>
+    <script>
+        document.querySelector('a').onclick = function(event){
+            if (document.getElementById('prevent2').checked){
+                return false;
+            }
+        }
+
+        document.querySelector("form").onclick = function(event){
+            if (document.getElementById("prevent2").checked){
+                return false;
+            }
+        }
+    </script> -->
+
+    <!-- addEventListener 방식 -->
+    <p>
+        <label for="prevent3">prevent event on
+            <input type="checkbox" id="prevent3" name="eventprevent3" value="on" />
+        </label>
+    </p>
+    <p>
+        <a href="http://opentutorials.org">opentutorials</a>
+    </p>
+    <p>
+        <form action="http://opentutorials.org">
+            <input type="submit" />
+        </form>
+    </p>
+    <script>
+        document.querySelector("a").addEventListener("click", function(event){
+            // prevent3엘리먼트가 check가 되있다면, 아래의 동작을 실행해서 기본동작을 하지 못하도록 막아준다.
+            if (document.getElementById("prevent3").checked){
+                // return false 와 같은 동작을 한다 .
+                // addEventListener에서는 return false를 사용하지 않고 event.preventDefault()를 사용한다.
+                event.preventDefault();
+            }
+        });
+
+        document.querySelector("form").addEventListener("submit", function(event){
+            if (document.getElementById("prevent3").checked){
+                event.preventDefault();
+            }
+        });
+    </script>
+</body>
+</html>
