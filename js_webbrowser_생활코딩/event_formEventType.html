@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web_js event_formEventType</title>
+</head>
+<body>
+    <!-- submit -->
+    <form action="result.html" id="target1" />
+        <label for="name">Name</label>
+        <input type="name" id="name" />
+        <input type="submit" />
+    </form>
+    <br/>
+    <br/>
+    <script>
+        var tar = document.getElementById("target1");
+        tar.addEventListener("submit", function(event){
+            if (document.getElementById("name").value.length === 0){
+                alert("Name 값이 누락 되었습니다 다시 확인해 주세요.");
+                // event.preventDefault() 는 태그가 가지고 있는 기본 동작을 취소 시키는 코드이다.
+                // 만약 name엘리먼트의 길이가 0 이라면 (누락됬다면,) 경고창을 띄워주고 실행 취소를 시켜주는것!
+                event.preventDefault();
+            }
+        })
+    </script>
+
+    <!-- change -->
+    <p id="result"></p>
+    <input type="name" id="target2" />
+    <br/>
+    <br/>
+    <script>
+        var tar = document.getElementById("target2");
+        tar.addEventListener("change", function(event){
+            document.getElementById("result").innerHTML = event.target.value;
+        });
+    </script>
+
+    <!-- blur, focus -->
+    <input type="name" id="target3" />
+    <script>
+        var tar = document.getElementById("target3");
+        tar.addEventListener("blur", function(event){
+            alert("blur");
+        });
+
+        tar.addEventListener("focus", function(event){
+            alert("focus");
+        });
+    </script>
+</body>
+</html>
