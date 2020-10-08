@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        // 문서 로딩을 head태그에 넣어야할때!
+        // window.addEventListener("load", function(){
+        //     var t = document.getElementById("target");
+        //     console.log(t);
+        // })
+        
+        // 위의 방법과 아래의 방법은 문서가 모두 로드 되고 나서 load 와 DOMContentLoaded 를 찾아서 실행을 시켜준다.
+        // DOMContentLoaded 방법이 더 선호되는 방법이다. 이유는 더 빠르다.
+        window.addEventListener("DOMContentLoaded", function(){
+            var t = document.getElementById("target");
+            console.log(t);
+        })
+    </script>
+    <title>Web_Js event_contentLoad</title>
+</head>
+<body>
+    <p id="target">Hello</p>
+</body>
+</html>
