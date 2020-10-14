@@ -168,6 +168,8 @@ console.log(arrowAdd(3,4));
 
 function calculate(command, a, b){
     switch (command){
+        default :
+            throw Error("unknown command");
         case "add":
             console.log(a + b);
             break;
