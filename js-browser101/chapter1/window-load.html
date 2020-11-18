@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./window-load_app.js" defer></script>
+    <title>window-load</title>
+  </head>
+  <body>
+    <script>
+      // only document 가 끝나면 호출 된다.
+      window.addEventListener('DOMContentLoaded', () => {
+        console.log('DOMContentLoaded');
+      });
+
+      // after resources (css, images, font ...) 등등 모든게 다 끝나고 나서 호출된다.
+      window.addEventListener('load', () => {
+        console.log('load');
+      });
+
+      // 사용자가 화면을 종료 할때 무슨 이벤트를 설정해야한다면 아래와 같이 사용하면 된다.
+      // before unload 화면이 꺼지기 전에.
+      window.addEventListener('beforeunload', () => {
+        console.log('beforeunload');
+      });
+
+      // resource is being unloaded
+      window.addEventListener('unload', () => {
+        console.log('unload');
+      });
+    </script>
+  </body>
+</html>
