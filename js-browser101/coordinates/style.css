@@ -1,0 +1,40 @@
+body {
+  background-color: #000;
+}
+
+.line {
+  position: absolute;
+  background-color: #fff;
+}
+
+.horizontal {
+  width: 100%;
+  height: 1px;
+  top: 50%;
+}
+
+.vertical {
+  height: 100%;
+  width: 1px;
+  left: 50%;
+}
+
+/* 
+absolute top50% left50% img가 중간으로 오는데 top left에 맞춰서 중간으로 오기때문에 
+transform: translate(-50%,-50%) 를 통해서 이미지 한 가운데로 움직여 주어야 최종적으로 이미지가 정가운데에 위치한다.
+*/
+.target {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.tag {
+  font-size: 38px;
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(20px, 20px);
+}
