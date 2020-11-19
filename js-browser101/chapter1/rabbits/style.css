@@ -1,0 +1,28 @@
+body {
+  background-color: #000;
+  text-align: center;
+}
+
+img {
+  display: block;
+  margin: auto;
+}
+
+button {
+  outline: none;
+  border: none;
+  background-color: tomato;
+  color: #fff;
+  font-size: 32px;
+  margin: 16px 0;
+  cursor: pointer;
+  transition: 350ms;
+}
+
+button:hover {
+  opacity: 0.7;
+}
+
+button:active {
+  transform: translateY(0.9px);
+}
