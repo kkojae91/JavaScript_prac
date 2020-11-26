@@ -1,0 +1,17 @@
+.outer {
+  width: 400px;
+  height: 400px;
+  background-color: #ffc82c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.middle {
+  width: 200px;
+  height: 200px;
+  background-color: #0081ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
