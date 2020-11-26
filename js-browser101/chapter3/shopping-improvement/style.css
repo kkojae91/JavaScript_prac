@@ -1,0 +1,98 @@
+* {
+  box-sizing: border-box;
+  /* margin: 0; */
+}
+
+ul {
+  padding: 0;
+}
+
+button {
+  outline: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+body {
+  background-color: #ced3df;
+  text-align: center;
+}
+
+.list {
+  width: 400px;
+  margin: auto;
+  background-color: #f1f0f7;
+  border-radius: 20px;
+  -webkit-box-shadow: 4px 4px 8px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 4px 4px 8px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 4px 4px 8px 0px rgba(50, 50, 50, 0.75);
+}
+
+.header {
+  height: 48px;
+  padding: 8px;
+  font-size: 24px;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 20%, rgba(0, 212, 255, 1) 79%);
+  border-radius: 20px 20px 0 0;
+  color: #fff;
+}
+
+.items {
+  height: 500px;
+  /* item이 많아지면 자동으로 scroll-bar가 생긴다. */
+  overflow-y: auto;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 32px;
+}
+
+.item-delete {
+  font-size: 16px;
+  transition: all 300ms ease-in;
+}
+
+.item-delete:hover {
+  color: red;
+  transform: scale(1.1);
+}
+
+.item-divider {
+  width: 90%;
+  height: 1px;
+  background-color: lightgray;
+  margin: auto;
+}
+
+.footer {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 20%, rgba(0, 212, 255, 1) 79%);
+  border-radius: 0 0 20px 20px;
+}
+
+.footer-input {
+  width: 100%;
+  height: 32px;
+  border: none;
+  outline: none;
+  font-size: 24px;
+  padding: 0 16px;
+}
+
+.footer-button {
+  width: 48px;
+  height: 48px;
+  font-size: 28px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 50%;
+  transition: transform 300ms ease-in;
+}
+
+.footer-button:hover {
+  transform: scale(1.1);
+}
