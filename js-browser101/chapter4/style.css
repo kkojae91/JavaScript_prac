@@ -11,6 +11,7 @@ button {
 
 body {
   text-align: center;
+  background-color: #000;
 }
 
 .game {
@@ -54,12 +55,15 @@ body {
   /* display none 을 하면 field사이즈에 영향을 줄 수 있다. 
   그래서 rendertree에는 유지하고, visibility에 hidden을 줘서 눈에 보이지 않게 해준다. */
   visibility: hidden;
+  /* cursor가 선택 되지 않게 해주는 것 */
+  user-select: none;
+  cursor: auto;
 }
 
 .game__score {
   width: 50px;
   height: 50px;
-  font-size: 46px;
+  font-size: 38px;
   background-color: darksalmon;
   border-radius: 50%;
   text-align: center;
@@ -67,6 +71,8 @@ body {
   margin-top: 8px;
   border: 4px solid black;
   visibility: hidden;
+  user-select: none;
+  cursor: auto;
 }
 
 .game__field {
@@ -107,4 +113,14 @@ body {
 .pop-up__message {
   display: block;
   font-size: 38px;
+}
+
+.carrot,
+.bug {
+  transition: transform 100ms ease-in;
+}
+
+.carrot:hover,
+.bug:hover {
+  transform: scale(1.1);
 }
