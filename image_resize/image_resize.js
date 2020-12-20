@@ -1,6 +1,6 @@
 "use strict";
 
-const imageFile = document.querySelector("#imageFile");
+const imageFile = document.querySelector("#photo");
 document.addEventListener("DOMContentLoaded", () => {
   imageFile.addEventListener("change", (event) => {
     const files = event.target.files;
@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", () => {
       reader.onload = (event) => {
         previewImage.src = event.target.result;
       };
-      // console.log(reader.onload);
       reader.readAsDataURL(file);
       resizeImageFunc();
     }
@@ -33,8 +32,8 @@ function resizeImageFunc() {
         let context = canvas.getContext("2d");
         context.drawImage(image, 0, 0);
 
-        const MAX_WIDTH = 400;
-        const MAX_HEIGHT = 400;
+        const MAX_WIDTH = 190;
+        const MAX_HEIGHT = 190;
         let width = image.width;
         let height = image.height;
 
@@ -56,7 +55,7 @@ function resizeImageFunc() {
         context.drawImage(image, 0, 0, width, height);
 
         const dataurl = canvas.toDataURL(file.type);
-        document.querySelector("#output").src = dataurl;
+        document.querySelector("#resizePhoto").src = dataurl;
       };
       reader.readAsDataURL(file);
     }
