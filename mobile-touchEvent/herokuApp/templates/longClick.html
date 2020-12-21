@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="{% static 'js/longClick.js' %}" defer></script>
+    <link rel="stylesheet" href="{% static 'css/longClick.css' %}" />
+    <title>Document</title>
+  </head>
+  <body oncontextmenu="return false">
+    <h1>Long Click Event</h1>
+    <input id="count" type="number" value="0" />
+    <button id="plus">+</button>
+    <button id="minus">-</button>
+
+    <button class="click">Click해주세요</button>
+    <div class="display" style='display:none;'>
+      이게 갑자기 나타 날꺼야 하핫
+    </div>
+  </body>
+</html>
