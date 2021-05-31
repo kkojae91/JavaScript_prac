@@ -175,6 +175,8 @@ function calculate(command, a, b) {
       return a * b;
     case "remainder":
       return a % b;
+    default:
+      throw Error("unkwon command");
   }
 }
 
