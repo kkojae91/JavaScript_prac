@@ -1,0 +1,23 @@
+body {
+  background-color: black;
+}
+
+div {
+  width: 250px;
+  height: 250px;
+  background-color: blanchedalmond;
+  margin-bottom: 4px;
+  border-radius: 4px;
+}
+
+.special {
+  background-color: lightsalmon;
+}
+
+.buttons {
+  margin-top: 5px;
+  margin-right: 5px;
+  position: fixed;
+  top: 0;
+  right: 0;
+}
